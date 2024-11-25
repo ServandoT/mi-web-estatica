@@ -1,32 +1,305 @@
-* {
+*, *::after, *::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Estilar el body para la estructura principal */
 body {
-    height: 100dvh;
-    background-color: #424242;
-    margin: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+    min-height: 100dvh;
+    background-color: #d6f7fc;
+    font-family: sans-serif;
 }
 
-.main {
-    background-color: #c2ff4f;
-    border: 3px solid white;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    padding: 40px;
-    font-family: monospace;
-    font-weight: bolder;
-    font-size: large;
+/* Estilar el header */
+header {
+    height: 100px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+
+    & img {
+        height: 80px;
+        width: 80px;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        -ms-border-radius: 100%;
+        -o-border-radius: 100%;
+        margin-left: 15px;
+    }
+
+    & h1 {
+        font-size: 70px;
+    }
+
+    & form {
+        margin-right: 15px;
+
+        & svg {
+            width: 18px;
+        }
+    }
+}
+
+label svg, #botonHamburguesa {
+    display: none;
+}
+
+/* Estilar el nav principal */
+.nav_principal {
+    background-color: #92eefc;
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+}
+
+/* Estilar el contenido principal de la página */
+main {
+    display: flex;
+
+    & aside {
+        z-index: 10; /* Necesario para poder pone box-shadow */
+        background-color: #65e6fa;
+        box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.242);
+        border-right: 1px solid black;
+        flex:2; /* Para ajustar el tamaño respecto a section */
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+
+        & article {
+            box-shadow: 3px 3px 10px rgb(0, 0, 0), -3px -3px 20px rgba(255, 255, 255, 0.484);
+            background-color: white;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+}
+
+        & a {
+            margin-top: auto;
+        }
+    }
+
+    & section {
+        background-color: #d6f7fc;
+        flex: 8;
+
+        & .subtitulo {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            min-height: 55px;
+
+            & img {
+                position: absolute;
+                left: 20px;
+                height: 50px;
+                width: 50px;
+                border-radius: 100%;
+                -webkit-border-radius: 100%;
+                -moz-border-radius: 100%;
+                -ms-border-radius: 100%;
+                -o-border-radius: 100%;
+            }
+
+            & h1 {
+                font-size: 50px;
+            }
+        }
+
+        & .productos {
+            /* Cuadrícula usando grid y definiendo columnas y filas */
+            display: grid; 
+            grid-template-columns:  1fr 1.2fr 1fr 1.2fr;
+            grid-template-rows: 1fr;
+            gap: 20px;
+            padding: 20px;
+
+            & .descripcion {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                justify-content: center;
+                padding: 30px;
+                border: 1px solid black;
+                border-radius: 10px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px;
+                background-color: white;
+                box-shadow: 1px 1px 10px black;
+            }
+
+            /* Cuando se hace hover en las imagenes se hace un pequeño zoom además de un box-shadow */
+            & img:hover {
+                box-shadow: 3px 3px 10px rgb(0, 0, 0), -3px -3px 10px rgba(255, 255, 255, 0.484);
+                transition: all 0.5s ease-in;
+                transform: scale(1.2);
+                -webkit-transform: scale(1.2);
+                -moz-transform: scale(1.2);
+                -ms-transform: scale(1.2);
+                -o-transform: scale(1.2);
+                -webkit-transition: all 0.5s ease-in;
+                -moz-transition: all 0.5s ease-in;
+                -ms-transition: all 0.5s ease-in;
+                -o-transition: all 0.5s ease-in;
+}
+
+            /* Elementos auxiliares para la cuadrícula */
+            & .aux {
+                opacity: 0;
+            }
+
+            & a {
+                all: unset;
+                /*reseteaestilos*/padding: 20px;
+                background-color: rgb(71, 71, 250);
+                border-radius: 10px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px;
+                box-shadow: 3px 3px 10px rgb(0, 0, 0), -3px -3px 10px rgba(255, 255, 255, 0.484);
+            }
+
+            & a:hover {
+                cursor: pointer;
+                background-color: rgb(34, 34, 219);
+            }
+        }
+    }
+}
+
+footer {
+    background-color: rgb(45, 45, 45);
+    margin-top: auto;
+    display: flex;
+    color: rgba(255, 255, 255, 0.694);
+
+    & .aside_footer {
+        background-color: rgb(28, 28, 28);
+        
+        flex: 1;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        & h2 {
+            font-size: 50px;
+        }
+
+        .sociales {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            
+            & svg {
+                width: 18px;
+            }
+        }
+
+        
+    }
+
+    & .nav_footer {
+        flex: 3;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1.2fr 1fr 1fr 1fr;
+        padding: 15px;
+
+        & h3 {
+            font-size: 25px;
+        }
+    }
+}
+
+@media (max-width: 850px) {
+
+    header {
+        justify-content: space-around;
+
+        & .buscar {
+            display: none;
+        }
+    }
+
+    & .nav_principal {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .subtitulo {
+        & img {
+            display: none;
+        }
+    }
+
+    .productos {
+        display: flex !important;
+        flex-direction: column;
+
+        & img {
+            height: 20%;
+        }
+
+        /* Cambio de escala menor que en modo completo */
+        & img:hover {
+            transform: scale(1.05) !important;
+            -webkit-transform: scale(1.05) !important;
+            -moz-transform: scale(1.05) !important;
+            -ms-transform: scale(1.05) !important;
+            -o-transform: scale(1.05) !important;
+        }
+
+        a {
+            margin: auto;
+        }
+    }
+
+    .nav_footer {
+        display: flex !important;
+        flex-direction: column;
+        gap: 15px;
+
+        & p {
+            display: none;
+        }
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    nav {
+        display: none !important;
+    }
+
+    #iconoHamburguesa svg {
+        display: block;
+        width: 30px;
+    }
+
+    #iconoHamburguesa {
+        padding: 10px;
+        margin: auto;
+    }
+
+    #botonHamburguesa:checked ~ nav {
+        display: flex !important;
+    }
 }
